@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "16afbd3b-db24-47e2-bb58-59cdf64fa368",
+		"name": "Collection2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Get User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b58ff3dd-0ffd-49c6-b696-162553ab5a79",
+								"exec": [
+									"console.log(\"Hello This is Get User Request\");",
+									"let urlVar = pm.variables.get(\"url\");",
+									"console.log(\"Value for the url variable is :\"+urlVar);",
+									"",
+									"pm.variables.set(\"name\",\"POSTMAN\");",
+									"",
+									"console.log(pm.variables.get(\"name\"));",
+									"",
+									"let globalNameVar = pm.globals.get(\"Name\");",
+									"",
+									"console.log(globalNameVar);",
+									"",
+									"let globalEvnVar = pm.globals.get(\"Env\");",
+									"",
+									"console.log(globalEvnVar);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f9caee34-82b4-4c11-91ed-14b58486d34a",
+								"exec": [
+									"console.log(\"Hello This is Get User Request\");",
+									"let urlVar = pm.variables.get(\"url\");",
+									"console.log(\"Value for the url variable is :\"+urlVar);",
+									"",
+									"pm.variables.set(\"name\",\"POSTMAN\");",
+									"",
+									"console.log(pm.variables.get(\"name\"));",
+									"",
+									"let globalNameVar = pm.globals.get(\"Name\");",
+									"",
+									"console.log(globalNameVar);",
+									"",
+									"let globalEvnVar = pm.globals.get(\"Env\");",
+									"",
+									"console.log(globalEvnVar);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/users/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1652b70c-4fa1-4cb9-b3e8-564c0c0b272d",
+								"exec": [
+									"pm.test(\"Verify Response time is less than 1500ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);",
+									"});",
+									"",
+									"pm.test(\"Verify Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/users?page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "User Registration Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://reqres.in/{{endpoint}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5ff05593-5206-4637-94cf-ad5cb4edba64",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "da37af81-17ea-4f85-826f-97073cc7f822",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "07e1feff-6422-4426-8770-de391e337b65",
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
